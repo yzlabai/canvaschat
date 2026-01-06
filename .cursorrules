@@ -1,0 +1,95 @@
+# Project: CanvasChat - AI Canvas & Ideas Partner
+
+## General
+
+- This is a Next.js TypeScript application with App Router.
+- CanvasChat is an AI-powered canvas platform designed to help users chat, visualize ideas, and generate creative content on an interactive canvas.
+- Use React for components development, prefer to use functional components.
+- Use Tailwind CSS for styling.
+- Use Shadcn UI components.
+- Use sonner for toast notifications.
+- Use React Context for state management.
+- Component names are in CamelCase.
+- Use next-auth for authentication.
+- Use Drizzle ORM for database operations.
+- Use Supabase for backend services.
+- Payment processing integrated for subscription plans (Lite and Professional).
+
+## File Structure
+
+- src/app/: Next.js App Router pages and API routes
+  - (admin)/: Admin-only pages and functionality
+  - (default)/: Default public pages (landing page, etc.)
+  - (legal)/: Legal pages (privacy policy, terms, etc.)
+  - api/: API routes for backend operations
+  - auth/: Authentication-related pages
+  - pay-success/: Payment success pages
+  - yan/: Main CanvasChat application pages
+  - globals.css, theme.css, yan.css: Global styles and theming
+- src/auth/: Authentication configuration and handlers
+- src/components/: React components
+  - analytics/: Analytics and tracking components
+  - blocks/: Layout blocks (header, footer, etc.), commonly used in Landing Page
+  - console/: Admin console components
+  - copyit/: Copy-to-clipboard functionality
+  - dashboard/: Dashboard UI components
+  - emails/: Email template components
+  - feedback/: User feedback components
+  - icon/: Custom icon components
+  - invite/: User invitation components
+  - locale/: Localization components
+  - markdown/: Markdown rendering components
+  - motion-primitives/: Animation and motion components
+  - sign/: Sign-in/sign-up components
+  - theme/: Theme switching components
+  - ui/: Reusable UI components (Shadcn UI)
+  - yan/: CanvasChat-specific components
+- src/contexts/: React contexts for global state management
+- src/db/: Database configuration and schema
+  - migrations/: Database migration files
+- src/hooks/: Custom React hooks
+- src/lib/: Custom libraries and utility functions
+  - chat-store/: Chat state management
+  - aimodels.ts: AI model configurations
+  - cache.ts: Caching utilities
+  - config.ts: Application configuration
+  - gateway.ts: API gateway utilities
+  - supabase.ts: Supabase client configuration
+- src/middleware.ts: Next.js middleware
+- src/models/: Data models and data operations
+- src/providers/: React providers (theme, etc.)
+- src/services/: Business logic and external service integrations
+- src/types/: TypeScript type definitions
+  - blocks/: Types for layout blocks
+  - pages/: Types for pages
+  - slots/: Types for slot-based components
+  - API and domain-specific type definitions
+- public/: Static assets
+  - imgs/: Image assets (icons, logos, masks, etc.)
+  - favicon.ico, logo.png: Brand assets
+  - robots.txt, sitemap.xml: SEO files
+- docs/: Project documentation
+- debug/: Development and debugging tools
+- .env.development: Development environment variables
+
+## Key Features
+
+- AI-powered canvas for idea generation and visualization
+- Multi-provider AI model support (OpenAI, Anthropic, DeepSeek, Google)
+- Credit-based system for AI conversations and features
+- User authentication and profile management
+- Real-time chat interface with AI agents
+- Responsive design with dark/light theme support
+
+## Coding Conventions
+
+- Use TypeScript for type safety
+- Follow React best practices and hooks
+- Implement responsive design with Tailwind CSS and Shadcn UI
+- Keep components modular and reusable
+- Use proper type definitions for components and data
+- Organize components by feature/domain in appropriate directories
+- Use consistent naming conventions (CamelCase for components, kebab-case for files)
+- Implement proper error handling and loading states
+- Follow Next.js App Router conventions for routing and data fetching
+- Use server components by default, client components only when necessary for interactivity

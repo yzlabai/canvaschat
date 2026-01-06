@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /*?*q=
+Disallow: /admin/
+Disallow: /api/
+Disallow: /auth/
+Disallow: /yan/
+Disallow: /pay/success
+Allow: /privacy-policy
+Allow: /terms-of-service
+Allow: /cookies
+
+Sitemap: https://canvas.chat/sitemap.xml
