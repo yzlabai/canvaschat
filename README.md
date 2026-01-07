@@ -2,9 +2,12 @@
 
 Chat on the canvas, generate ideas with AI.
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black) 
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--5-green) 
-![Vercel](https://img.shields.io/badge/Vercel-AI%20SDK-orange)
+![Next.js](https://img.shields.io/badge/Next.js-16-black) 
+![React](https://img.shields.io/badge/React-19-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) 
+![AI SDK](https://img.shields.io/badge/AI_SDK-6.0-orange)
+![Bun](https://img.shields.io/badge/Bun-1.1-black)
+![fal.ai](https://img.shields.io/badge/fal.ai-Generative%20Media-purple)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![Supabase](https://img.shields.io/badge/supabase-000?logo=supabase)](https://supabase.com/)
 [![Drizzle ORM](https://img.shields.io/badge/drizzle%20orm-000?logo=drizzle&logoColor=white)](https://orm.drizzle.team/)
@@ -12,42 +15,54 @@ Chat on the canvas, generate ideas with AI.
 
 - **Canvas-based Chat**: Visualize and organize your conversations on an interactive canvas
 - **AI-Powered Idea Generation**: Brainstorm, expand, and connect ideas with multiple AI models
-- **Built with Modern Stack**: Next.js, Tailwind CSS, Drizzle ORM, and Vercel AI SDK
+- **Generative Media**: Create images and videos directly on the canvas using fal.ai
+- **Built with Modern Stack**: Next.js 16, React 19, Tailwind CSS 4, Drizzle ORM, and Vercel AI SDK 6.0
 - **Multi-Model Support**: OpenAI, Anthropic, Google Gemini, and more
+- **Performance First**: Powered by Bun and Turbopack for lightning-fast development
+
+## 📸 Preview
+
+<video src="docs/3.mp4" controls="controls" muted="muted" width="100%"></video>
+
+| | |
+|:---:|:---:|
+| ![Canvas Interface](docs/1.jpg) | ![AI Chat](docs/2.jpg) |
 
 ## 🌟 Features
 
 - **Canvas Interface**: Interactive canvas for organizing chats and ideas visually
 - **AI Idea Generation**: Generate, expand, and connect ideas using AI
+- **Generative Media**: Create high-quality images and videos using fal.ai integration (Flux, Ideogram, Luma, etc.)
 - **Multi-Model AI Support**: OpenAI, Anthropic, Google, Replicate, OpenRouter, and more
 - **Deep Research**: Web search, file uploads, and memory management
 - **User Authentication**: Google OAuth, magic links, and secure session management
-- **Modern UI**: Responsive design with dark/light themes using Tailwind CSS
+- **Modern UI**: Responsive design with dark/light themes using Tailwind CSS 4
 - **Database**: PostgreSQL with Drizzle ORM for type-safe database operations
-- **Deployment Ready**: Cloudflare Workers, Vercel, and Docker support
+- **Deployment Ready**: Cloudflare Workers (OpenNext), Vercel, and Docker support
 
 ## 🏗️ Architecture
 
 ### Frontend
-- **Framework**: Next.js 15 with App Router and React 19, shadcn/ui
+- **Framework**: Next.js 16 with App Router and React 19 (Server Components & Actions)
 - **Styling**: Tailwind CSS 4 with Radix UI components
 - **State Management**: Zustand with React Context
 - **Type Safety**: TypeScript with strict configuration
 - **Animations**: Motion (Framer Motion successor)
-- **AI UI**: using prompt-kit and AI-element
+- **AI UI**: Vercel AI SDK 6.0 UI components
 
 ### Backend
-- **API Routes**: Next.js API routes with middleware
+- **API Routes**: Next.js API routes with Proxy (formerly Middleware)
 - **Database**: PostgreSQL with Drizzle ORM and Supabase
 - **Authentication**: NextAuth.js 5 (Auth.js)
-- **AI SDK**: Vercel AI SDK 5.0
+- **AI SDK**: Vercel AI SDK 6.0 with Core API
 - **Task Queue**: Trigger.dev for background jobs
 
 ### AI Integration
-- **AI SDK**: Vercel AI SDK 5.0 with streaming support
-- **Models**: OpenAI GPT, Claude, Gemini, and more
+- **AI SDK**: Vercel AI SDK 6.0 with multi-provider support
+- **Models**: OpenAI GPT, Claude, Gemini, DeepSeek, and more
+- **Media Generation**: fal.ai for fast, high-quality image and video generation
 - **Gateway**: AI Gateway for model routing and load balancing
-- **Streaming**: Real-time response streaming
+- **Streaming**: Real-time response streaming with the new AI Core standard
 
 ## 🚀 Quick Start
 
@@ -91,6 +106,7 @@ AUTH_GOOGLE_SECRET="your-google-oauth-secret"
 # AI Providers (configure at least one)
 OPENAI_API_KEY="your-openai-key"
 ANTHROPIC_API_KEY="your-anthropic-key"
+FAL_KEY="your-fal-ai-key"
 
 # Optional: Storage, Email
 AWS_ACCESS_KEY_ID="your-aws-key"
