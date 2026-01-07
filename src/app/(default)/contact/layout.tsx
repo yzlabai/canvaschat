@@ -17,7 +17,7 @@ const contactStructuredData = {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        email: "revessencehk@gmail.com",
+        email: "info@yzlab.cn",
         telephone: "+86 133 9712 5912",
         contactType: "customer support",
         areaServed: "Worldwide",

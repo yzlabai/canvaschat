@@ -302,7 +302,7 @@ export default function RoadmapPage() {
             </CardHeader>
             <CardContent>
               <Button variant="outline" className="w-full" asChild>
-                <Link href="mailto:revessencehk@gmail.com?subject=Feature Request">
+                <Link href="mailto:info@yzlab.cn?subject=Feature Request">
                   Request Feature
                 </Link>
               </Button>

@@ -265,7 +265,7 @@ export default function CareersPage() {
                   </div>
                   <div className="flex flex-col gap-2">
                     <Button asChild>
-                      <Link href={`mailto:revessencehk@gmail.com?subject=Application for ${job.title}`}>
+                      <Link href={`mailto:info@yzlab.cn?subject=Application for ${job.title}`}>
                         Apply Now
                       </Link>
                     </Button>
@@ -382,7 +382,7 @@ export default function CareersPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="px-8 py-6 text-lg h-auto" asChild>
-                <Link href="mailto:revessencehk@gmail.com?subject=General Application">
+                <Link href="mailto:info@yzlab.cn?subject=General Application">
                   Send Us Your Resume <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>

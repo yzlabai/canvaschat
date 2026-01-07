@@ -138,7 +138,7 @@ export default function HelpPage() {
       icon: Mail,
       availability: "Response within 24h",
       action: "Send Email",
-      href: "mailto:revessencehk@gmail.com"
+      href: "mailto:info@yzlab.cn"
     },
     {
       title: "Community Forum",

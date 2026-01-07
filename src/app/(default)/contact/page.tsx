@@ -30,7 +30,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Create mailto link with form data
-    const mailtoLink = `mailto:revessencehk@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:info@yzlab.cn?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
     window.location.href = mailtoLink;
@@ -41,7 +41,7 @@ export default function ContactPage() {
       icon: Mail,
       title: "Email Us",
       description: "Get in touch for general inquiries",
-      contact: "revessencehk@gmail.com",
+      contact: "info@yzlab.cn",
       action: "Send Email"
     },
     {

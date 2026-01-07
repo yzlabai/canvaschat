@@ -51,35 +51,6 @@ export default function LandingPage() {
               </Button>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3" style={{ imageRendering: "pixelated" }}>
-            {[{
-              label: "Fast Chat",
-              value: "01",
-              description: "Hyper-responsive dialogue",
-            },
-            {
-              label: "Ideas Canvas",
-              value: "02",
-              description: "Space for creative thinking",
-            },
-            {
-              label: "Long Research",
-              value: "03",
-              description: "Automatic knowledge tracking",
-            }].map((item) => (
-              <div
-                key={item.label}
-                className={`${panelClass} bg-slate-900 text-left font-mono uppercase text-xs tracking-[0.28em]`}
-              >
-                <p className="text-sm text-green-300">Mission {item.value}</p>
-                <h2 className="mt-3 text-xl text-yellow-300">{item.label}</h2>
-                <p className="mt-2 text-sm text-slate-300 normal-case tracking-normal">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -172,7 +143,7 @@ export default function LandingPage() {
             </div>
             <div className="mt-10 flex flex-col justify-between gap-4 border-t-4 border-black pt-6 text-center text-sm font-medium text-slate-300 lg:flex-row lg:items-center lg:text-left">
               <p>
-                © 2024 CanvasChat. All rights reserved. Contact: revessencehk@gmail.com
+                2026 CanvasChat. 
               </p>
               <ul className="flex justify-center gap-4 lg:justify-start">
                 <li className="hover:text-primary">

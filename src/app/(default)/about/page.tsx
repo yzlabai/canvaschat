@@ -251,7 +251,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <Button variant="outline" className="w-full" asChild>
-                <Link href="mailto:revessencehk@gmail.com?subject=Newsletter Signup">
+                <Link href="mailto:info@yzlab.cn?subject=Newsletter Signup">
                   Subscribe to Updates
                 </Link>
               </Button>
