@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const AUTH_SIGNIN_PATH = "/auth/signin";
 
-export default async function middleware(request: NextRequest) {
+export default async function proxy(request: NextRequest) {
   // Check if the request is for a protected route under /yan
   const pathname = request.nextUrl.pathname;
 

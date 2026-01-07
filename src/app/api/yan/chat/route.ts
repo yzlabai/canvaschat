@@ -1,9 +1,7 @@
 import { SYSTEM_PROMPT_DEFAULT } from "@/lib/config";
 import {
-  convertToModelMessages,
+  convertToCoreMessages,
   streamText,
-  ToolChoice,
-  ToolSet,
 } from "ai";
 
 import { createErrorResponse, extractErrorMessage } from "./utils";
@@ -193,14 +191,17 @@ function extractMessageText(content: any, text: string): string {
  */
 export async function POST(req: Request) {
   try {
+    const data = (await req.json()) as ChatRequest;
     const {
       id,
-      message,
       messages,
       conversationId,
       isMultiModelMode = false,
       selectedModels = [],
-    } = (await req.json()) as ChatRequest;
+    } = data;
+    
+    // Fallback if message is not provided explicitly (standard useChat behavior)
+    const message = data.message || (messages && messages.length > 0 ? messages[messages.length - 1] : undefined);
 
     const userId = (await auth())?.user?.uuid;
     if (!message || !conversationId || !userId) {
@@ -287,8 +288,8 @@ export async function POST(req: Request) {
     }
 
     let effectiveSystemPrompt = SYSTEM_PROMPT_DEFAULT;
-    let tools = {} as ToolSet;
-    let toolChoice = { } as ToolChoice<ToolSet> | undefined;
+    let tools: any = {};
+    let toolChoice: "auto" | "none" | "required" | { type: "tool"; toolName: string } | undefined;
 
     if (isMultiModelMode) {
       const toolMultipleModels = createToolMultipleModels(selectedModels);
@@ -336,7 +337,7 @@ export async function POST(req: Request) {
     const result = streamText({
       model: gateway(fastModel.name),
       system: effectiveSystemPrompt,
-      messages: convertToModelMessages(filteredMessages), // Pass filtered messages without reasoning parts
+      messages: convertToCoreMessages(filteredMessages), // Pass filtered messages without reasoning parts
       tools,
       toolChoice,
       onError: (err: unknown) => {

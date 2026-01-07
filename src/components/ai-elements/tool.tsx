@@ -7,7 +7,7 @@ import {
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
 import { cn } from '@/lib/utils';
-import type { ToolUIPart } from 'ai';
+import type { ToolInvocation } from 'ai';
 import {
   CheckCircleIcon,
   ChevronDownIcon,
@@ -29,37 +29,35 @@ export const Tool = ({ className, ...props }: ToolProps) => (
 );
 
 export type ToolHeaderProps = {
-  type: ToolUIPart['type'];
-  state: ToolUIPart['state'];
+  toolName: string;
+  state: ToolInvocation['state'];
   className?: string;
 };
 
-const getStatusBadge = (status: ToolUIPart['state']) => {
-  const labels = {
-    'input-streaming': 'Pending',
-    'input-available': 'Running',
-    'output-available': 'Completed',
-    'output-error': 'Error',
-  } as const;
+const getStatusBadge = (state: ToolInvocation['state']) => {
+  const labels: Record<string, string> = {
+    'partial-call': 'Running',
+    'call': 'Running',
+    'result': 'Completed',
+  };
 
-  const icons = {
-    'input-streaming': <CircleIcon className="size-4" />,
-    'input-available': <ClockIcon className="size-4 animate-pulse" />,
-    'output-available': <CheckCircleIcon className="size-4 text-green-600" />,
-    'output-error': <XCircleIcon className="size-4 text-red-600" />,
-  } as const;
+  const icons: Record<string, ReactNode> = {
+    'partial-call': <ClockIcon className="size-4 animate-pulse" />,
+    'call': <ClockIcon className="size-4 animate-pulse" />,
+    'result': <CheckCircleIcon className="size-4 text-green-600" />,
+  };
 
   return (
     <Badge className="rounded-full text-xs" variant="secondary">
-      {icons[status]}
-      {labels[status]}
+      {icons[state]}
+      {labels[state] || state}
     </Badge>
   );
 };
 
 export const ToolHeader = ({
   className,
-  type,
+  toolName,
   state,
   ...props
 }: ToolHeaderProps) => (
@@ -72,7 +70,7 @@ export const ToolHeader = ({
   >
     <div className="flex items-center gap-2">
       <WrenchIcon className="size-4 text-muted-foreground" />
-      <span className="font-medium text-sm">{type}</span>
+      <span className="font-medium text-sm">{toolName}</span>
       {getStatusBadge(state)}
     </div>
     <ChevronDownIcon className="size-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-180" />
@@ -92,50 +90,45 @@ export const ToolContent = ({ className, ...props }: ToolContentProps) => (
 );
 
 export type ToolInputProps = ComponentProps<'div'> & {
-  input: ToolUIPart['input'];
+  args: ToolInvocation['args'];
 };
 
-export const ToolInput = ({ className, input, ...props }: ToolInputProps) => (
-  <div className={cn('space-y-2 overflow-hidden p-4', className)} {...props}>
+export const ToolInput = ({ className, args, ...props }: ToolInputProps) => (
+  <div className={cn('space-y-2 overflow-hidden p-4', className)} {...props} >
     <h4 className="font-medium text-muted-foreground text-xs uppercase tracking-wide">
       Parameters
     </h4>
     <div className="rounded-md bg-muted/50">
-      <CodeBlock code={JSON.stringify(input, null, 2)} language="json" />
+      <CodeBlock code={JSON.stringify(args, null, 2)} language="json" />
     </div>
   </div>
 );
 
 export type ToolOutputProps = ComponentProps<'div'> & {
-  output: ReactNode;
-  errorText: ToolUIPart['errorText'];
+  result: any;
 };
 
 export const ToolOutput = ({
   className,
-  output,
-  errorText,
+  result,
   ...props
 }: ToolOutputProps) => {
-  if (!(output || errorText)) {
+  if (!result) {
     return null;
   }
 
   return (
     <div className={cn('space-y-2 p-4', className)} {...props}>
       <h4 className="font-medium text-muted-foreground text-xs uppercase tracking-wide">
-        {errorText ? 'Error' : 'Result'}
+        Result
       </h4>
       <div
         className={cn(
           'overflow-x-auto rounded-md text-xs [&_table]:w-full',
-          errorText
-            ? 'bg-destructive/10 text-destructive'
-            : 'bg-muted/50 text-foreground'
+           'bg-muted/50 text-foreground'
         )}
       >
-        {errorText && <div>{errorText}</div>}
-        {output && <div>{output}</div>}
+        <div>{typeof result === 'string' ? result : JSON.stringify(result, null, 2)}</div>
       </div>
     </div>
   );

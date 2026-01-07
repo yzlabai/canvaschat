@@ -38,7 +38,7 @@ import { useParams, usePathname } from "next/navigation"
 import { createContext, useContext, useEffect, useState, useMemo, useCallback, ReactNode } from "react"
 import { useAppContext } from "@/contexts/app"
 import { useChat } from "@ai-sdk/react"
-import { ChatRequestOptions, DefaultChatTransport, type ChatStatus } from "ai"
+import { type ChatRequestOptions } from "ai"
 import { MESSAGE_MAX_LENGTH } from "@/lib/config"
 import type { YanConversation } from "./types"
 import type { MyUIMessage } from "@/types/api.types"
@@ -94,7 +94,7 @@ interface YanContextType {
   setCanvasStatus: React.Dispatch<React.SetStateAction<CanvasChatStatus>>
 
   // AI Chat functionality (from useChat)
-  status: ChatStatus
+  status: "streaming" | "ready" | "submitted" | "error"
   error: Error | undefined
   stop: () => void
   sendMessage: (message: MyUIMessage, options?: ChatRequestOptions) => Promise<void>
@@ -235,20 +235,7 @@ export function YanProvider({
     regenerate, 
     setMessages: setAiMessages 
   } = useChat<MyUIMessage>({
-    // @ts-ignore - Temporary type assertion for AI SDK version compatibility
-    transport: new DefaultChatTransport({
-      api: "/api/yan/chat", // Our custom chat API endpoint
-      prepareSendMessagesRequest({ messages, id, body }) {
-        return {
-          body: {
-            id,
-            messages,
-            message: messages.at(-1), // Only send the last message for context
-            ...body,
-          },
-        };
-      },
-    }),
+    api: "/api/yan/chat", // Our custom chat API endpoint
     onError: handleError,
   })
 

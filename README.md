@@ -52,7 +52,7 @@ Chat on the canvas, generate ideas with AI.
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ and pnpm
+- Node.js 18+ and bun
 - PostgreSQL database (local or hosted)
 - Environment variables (see configuration below)
 
@@ -68,7 +68,7 @@ cd canvaschat
 2. Install dependencies
 
 ```bash
-pnpm install
+bun install
 ```
 
 3. Set up environment variables
@@ -101,19 +101,19 @@ RESEND_API_KEY="your-resend-key"
 
 ```bash
 # Generate database schema
-pnpm db:generate
+bun db:generate
 
 # Run migrations
-pnpm db:migrate
+bun db:migrate
 
 # Optional: Open database studio
-pnpm db:studio
+bun db:studio
 ```
 
 5. Run the development server
 
 ```bash
-pnpm dev
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your application.
@@ -163,7 +163,7 @@ OPENAI_API_KEY = "your-openai-key"
 3. Deploy to Cloudflare
 
 ```bash
-pnpm cf:deploy
+bun cf:deploy
 ```
 
 ### Vercel
@@ -203,13 +203,13 @@ cp .env.docker .env
 ./scripts/docker-deploy.sh cleanup   # Clean up resources
 
 # Using npm scripts
-pnpm docker:build                    # Build production image
-pnpm docker:build-dev               # Build development image  
-pnpm docker:up                      # Start production stack
-pnpm docker:up-dev                  # Start development stack
-pnpm docker:down                    # Stop all containers
-pnpm docker:logs                    # View logs
-pnpm docker:clean                   # Clean up everything
+bun docker:build                    # Build production image
+bun docker:build-dev               # Build development image  
+bun docker:up                      # Start production stack
+bun docker:up-dev                  # Start development stack
+bun docker:down                    # Stop all containers
+bun docker:logs                    # View logs
+bun docker:clean                   # Clean up everything
 ```
 
 #### Docker Compose Files
@@ -236,31 +236,31 @@ For detailed Docker documentation, see [docs/DOCKER_SETUP.md](docs/DOCKER_SETUP.
 
 ```bash
 # Generate schema from code
-pnpm db:generate
+bun db:generate
 
 # Apply migrations
-pnpm db:migrate
+bun db:migrate
 
 # Push schema directly (force)
-pnpm db:push
+bun db:push
 
 # Open database studio
-pnpm db:studio
+bun db:studio
 ```
 
 ### Available Scripts
 
 ```bash
-pnpm dev          # Development server with Turbopack
-pnpm build        # Production build
-pnpm start        # Start production server
-pnpm lint         # ESLint checks
-pnpm analyze      # Bundle analysis
+bun dev          # Development server with Turbopack
+bun build        # Production build
+bun start        # Start production server
+bun lint         # ESLint checks
+bun analyze      # Bundle analysis
 
 # Cloudflare specific
-pnpm cf:preview   # Preview deployment
-pnpm cf:deploy    # Deploy to production
-pnpm cf:typegen   # Generate Cloudflare types
+bun cf:preview   # Preview deployment
+bun cf:deploy    # Deploy to production
+bun cf:typegen   # Generate Cloudflare types
 ```
 
 

@@ -1,5 +1,11 @@
 import { cn } from '@/lib/utils';
-import type { Experimental_GeneratedImage } from 'ai';
+
+// Removed Experimental_GeneratedImage in favor of local definition or updated type
+type Experimental_GeneratedImage = {
+  base64?: string;
+  uint8Array?: Uint8Array;
+  mediaType?: string;
+}
 
 export type ImageProps = Experimental_GeneratedImage & {
   className?: string;

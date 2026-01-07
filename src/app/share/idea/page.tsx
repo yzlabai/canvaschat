@@ -12,7 +12,9 @@ import { eq } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
 
-const FALLBACK_TITLE = \"Shared CanvasChat Canvas\";\nconst FALLBACK_DESCRIPTION =\n  \"Explore publicly shared idea canvases powered by CanvasChat's AI canvas workspace.\";
+const FALLBACK_TITLE = "Shared CanvasChat Canvas";
+const FALLBACK_DESCRIPTION =
+  "Explore publicly shared idea canvases powered by CanvasChat's AI canvas workspace.";
 
 type SharedIdeaRecord = {
   id: string;

@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { cn } from '@/lib/utils';
-import type { ChatStatus } from 'ai';
 import { Loader2Icon, SendIcon, SquareIcon, XIcon } from 'lucide-react';
 import type {
   ComponentProps,
@@ -140,7 +139,7 @@ export const PromptInputButton = ({
 };
 
 export type PromptInputSubmitProps = ComponentProps<typeof Button> & {
-  status?: ChatStatus;
+  status?: "streaming" | "ready" | "submitted" | "error";
 };
 
 export const PromptInputSubmit = ({
